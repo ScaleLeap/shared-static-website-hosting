@@ -18,7 +18,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
 });
 
 project.addTask('test:integ', {
-  exec: "npx cdk deploy --require-approval=never --app 'ts-node test/integ.ts'",
+  exec: "npx cdk deploy --all --require-approval=never --app 'ts-node test/integ.ts'",
 });
 
 project.synth();
