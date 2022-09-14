@@ -10,10 +10,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
   packageManager: javascript.NodePackageManager.NPM,
   projenrcTs: true,
   repositoryUrl: 'https://github.com/moltar/cdk-static-website-preview.git',
+  devDeps: [
+    'aws-cdk',
+    '@aws-cdk/integ-tests-alpha',
+  ],
   gitignore: ['cdk.out/'],
 });
-
-project.addDevDeps('@aws-cdk/integ-tests-alpha');
 
 project.addTask('test:integ', {
   exec: "npx cdk deploy --require-approval=never --app 'ts-node test/integ.ts'",
