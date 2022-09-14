@@ -13,6 +13,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   deps: [
     'param-case',
     'env-ci',
+    'haikunator',
   ],
   devDeps: [
     'aws-cdk',

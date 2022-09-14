@@ -131,6 +131,10 @@
       "type": "runtime"
     },
     {
+      "name": "haikunator",
+      "type": "runtime"
+    },
+    {
       "name": "param-case",
       "type": "runtime"
     }

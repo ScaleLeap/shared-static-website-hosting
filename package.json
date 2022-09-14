@@ -74,6 +74,7 @@
   },
   "dependencies": {
     "env-ci": "^7.3.0",
+    "haikunator": "^2.1.2",
     "param-case": "^3.0.4"
   },
   "keywords": [
