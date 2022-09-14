@@ -1,4 +1,5 @@
 import { paramCase } from 'param-case';
+import { IStaticWebsitePreviewNamingToken } from './tokens';
 
 export interface IStaticWebsitePreviewNamingStrategy {
   /**
@@ -13,6 +14,13 @@ export class StaticWebsitePreviewNamingStrategy implements IStaticWebsitePreview
    */
   static fromStaticName(name: string): IStaticWebsitePreviewNamingStrategy {
     return new StaticWebsitePreviewNamingStrategy(name);
+  }
+
+  /**
+   * Crafts a name from an array of token values.
+   */
+  static fromTokens(...tokens: IStaticWebsitePreviewNamingToken[]): IStaticWebsitePreviewNamingStrategy {
+    return new StaticWebsitePreviewNamingStrategy(tokens.map(({ token }) => token).join('-'));
   }
 
   /**
