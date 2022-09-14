@@ -5,6 +5,10 @@
       "type": "build"
     },
     {
+      "name": "@types/env-ci",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "version": "^27",
       "type": "build"
@@ -121,6 +125,10 @@
       "name": "constructs",
       "version": "^10.1.102",
       "type": "peer"
+    },
+    {
+      "name": "env-ci",
+      "type": "runtime"
     },
     {
       "name": "param-case",

@@ -12,10 +12,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/moltar/cdk-static-website-preview.git',
   deps: [
     'param-case',
+    'env-ci',
   ],
   devDeps: [
     'aws-cdk',
     '@aws-cdk/integ-tests-alpha',
+    '@types/env-ci',
   ],
   gitignore: [
     'cdk.context.json',
