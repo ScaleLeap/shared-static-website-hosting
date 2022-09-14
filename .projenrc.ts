@@ -1,4 +1,5 @@
 import { awscdk, javascript } from 'projen';
+
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Roman Filippov',
   authorAddress: 'rf@romanfilippov.com',
@@ -7,6 +8,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: 'cdk-static-website-preview',
   packageManager: javascript.NodePackageManager.NPM,
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/rf/cdk-static-website-preview.git',
+  repositoryUrl: 'https://github.com/moltar/cdk-static-website-preview.git',
 });
+
 project.synth();

@@ -2,7 +2,7 @@
   "name": "cdk-static-website-preview",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rf/cdk-static-website-preview.git"
+    "url": "https://github.com/moltar/cdk-static-website-preview.git"
   },
   "scripts": {
     "build": "npx projen build",
