@@ -10,6 +10,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   packageManager: javascript.NodePackageManager.NPM,
   projenrcTs: true,
   repositoryUrl: 'https://github.com/moltar/cdk-static-website-preview.git',
+  deps: [
+    'param-case',
+  ],
   devDeps: [
     'aws-cdk',
     '@aws-cdk/integ-tests-alpha',
