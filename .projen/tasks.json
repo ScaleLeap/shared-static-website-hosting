@@ -130,6 +130,78 @@
         }
       ]
     },
+    "integ:snapshot-all": {
+      "name": "integ:snapshot-all",
+      "description": "update snapshot for all integration tests",
+      "steps": [
+        {
+          "spawn": "integ:static-website-preview:snapshot"
+        }
+      ]
+    },
+    "integ:static-website-preview:assert": {
+      "name": "integ:static-website-preview:assert",
+      "description": "assert the snapshot of integration test 'static-website-preview'",
+      "steps": [
+        {
+          "exec": "[ -d \"test/static-website-preview.integ.snapshot\" ] || (echo \"No snapshot available for integration test 'static-website-preview'. Run 'projen integ:static-website-preview:deploy' to capture.\" && exit 1)"
+        },
+        {
+          "exec": "cdk synth --app \"ts-node -P tsconfig.dev.json test/static-website-preview.integ.ts\" --no-version-reporting --no-asset-metadata --no-path-metadata -o test/.tmp/static-website-preview.integ/assert.cdk.out > /dev/null"
+        },
+        {
+          "exec": "diff -r -x asset.* -x cdk.out -x manifest.json -x tree.json test/static-website-preview.integ.snapshot/ test/.tmp/static-website-preview.integ/assert.cdk.out/"
+        }
+      ]
+    },
+    "integ:static-website-preview:deploy": {
+      "name": "integ:static-website-preview:deploy",
+      "description": "deploy integration test 'static-website-preview' and capture snapshot",
+      "steps": [
+        {
+          "exec": "rm -fr test/.tmp/static-website-preview.integ/deploy.cdk.out"
+        },
+        {
+          "exec": "cdk deploy --app \"ts-node -P tsconfig.dev.json test/static-website-preview.integ.ts\" --no-version-reporting --no-asset-metadata --no-path-metadata '**' --require-approval=never -o test/.tmp/static-website-preview.integ/deploy.cdk.out"
+        },
+        {
+          "exec": "rm -fr test/static-website-preview.integ.snapshot"
+        },
+        {
+          "exec": "mv test/.tmp/static-website-preview.integ/deploy.cdk.out test/static-website-preview.integ.snapshot"
+        },
+        {
+          "spawn": "integ:static-website-preview:destroy"
+        }
+      ]
+    },
+    "integ:static-website-preview:destroy": {
+      "name": "integ:static-website-preview:destroy",
+      "description": "destroy integration test 'static-website-preview'",
+      "steps": [
+        {
+          "exec": "cdk destroy --app test/static-website-preview.integ.snapshot '**' --no-version-reporting"
+        }
+      ]
+    },
+    "integ:static-website-preview:snapshot": {
+      "name": "integ:static-website-preview:snapshot",
+      "description": "update snapshot for integration test \"static-website-preview\"",
+      "steps": [
+        {
+          "exec": "cdk synth --app \"ts-node -P tsconfig.dev.json test/static-website-preview.integ.ts\" --no-version-reporting --no-asset-metadata --no-path-metadata -o test/static-website-preview.integ.snapshot > /dev/null"
+        }
+      ]
+    },
+    "integ:static-website-preview:watch": {
+      "name": "integ:static-website-preview:watch",
+      "description": "watch integration test 'static-website-preview' (without updating snapshots)",
+      "steps": [
+        {
+          "exec": "cdk watch --app \"ts-node -P tsconfig.dev.json test/static-website-preview.integ.ts\" --no-version-reporting --no-asset-metadata --no-path-metadata '**' -o test/.tmp/static-website-preview.integ/deploy.cdk.out"
+        }
+      ]
+    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package",
@@ -207,14 +279,9 @@
         },
         {
           "spawn": "eslint"
-        }
-      ]
-    },
-    "test:integ": {
-      "name": "test:integ",
-      "steps": [
+        },
         {
-          "exec": "npx cdk deploy --all --require-approval=never --app 'ts-node test/integ.ts'"
+          "spawn": "integ:static-website-preview:assert"
         }
       ]
     },

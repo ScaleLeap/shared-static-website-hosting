@@ -14,11 +14,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'aws-cdk',
     '@aws-cdk/integ-tests-alpha',
   ],
-  gitignore: ['cdk.out/'],
-});
-
-project.addTask('test:integ', {
-  exec: "npx cdk deploy --all --require-approval=never --app 'ts-node test/integ.ts'",
+  integrationTestAutoDiscover: true,
 });
 
 project.synth();

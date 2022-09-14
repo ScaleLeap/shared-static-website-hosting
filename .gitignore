@@ -30,7 +30,6 @@ jspm_packages/
 *.tgz
 .yarn-integrity
 .cache
-cdk.out/
 !/.projenrc.js
 /test-reports/
 junit.xml
@@ -51,3 +50,12 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
+test/.tmp
+test/static-website-preview.integ.snapshot/asset.*
+test/static-website-preview.integ.snapshot/**/asset.*
+test/static-website-preview.integ.snapshot/cdk.out
+test/static-website-preview.integ.snapshot/**/cdk.out
+test/static-website-preview.integ.snapshot/manifest.json
+test/static-website-preview.integ.snapshot/**/manifest.json
+test/static-website-preview.integ.snapshot/tree.json
+test/static-website-preview.integ.snapshot/**/tree.json
