@@ -1,6 +1,6 @@
-import assert from 'assert';
 import { Aws } from 'aws-cdk-lib';
 import ci from 'env-ci';
+import Haikunator, { Options as HaikunatorOptions } from 'haikunator';
 
 function fromCI(name: 'branch' | 'commit' | 'build' | 'job' | 'pr' | 'slug'): IStaticWebsitePreviewNamingToken {
   const c = ci();
@@ -26,6 +26,17 @@ export class StaticWebsitePreviewNamingToken implements IStaticWebsitePreviewNam
    */
   static fromString(val: string): IStaticWebsitePreviewNamingToken {
     return new StaticWebsitePreviewNamingToken(val);
+  }
+
+  /**
+   * Uses the Haikunator package to generate a random name token, Heroku-style.
+   *
+   * @see https://www.npmjs.com/package/haikunator
+   */
+  static fromHaikunator(options?: HaikunatorOptions): IStaticWebsitePreviewNamingToken {
+    return new StaticWebsitePreviewNamingToken(
+      new Haikunator(options).haikunate(),
+    );
   }
 
   /**

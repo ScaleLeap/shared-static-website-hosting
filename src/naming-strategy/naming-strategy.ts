@@ -1,4 +1,3 @@
-import Haikunator, { Options as HaikunatorOptions } from 'haikunator';
 import { paramCase } from 'param-case';
 import { IStaticWebsitePreviewNamingToken } from './tokens';
 
@@ -8,7 +7,6 @@ export interface IStaticWebsitePreviewNamingStrategy {
    */
   name: string;
 }
-
 
 export class StaticWebsitePreviewNamingStrategy implements IStaticWebsitePreviewNamingStrategy {
   /**
@@ -23,17 +21,6 @@ export class StaticWebsitePreviewNamingStrategy implements IStaticWebsitePreview
    */
   static fromTokens(...tokens: IStaticWebsitePreviewNamingToken[]): IStaticWebsitePreviewNamingStrategy {
     return new StaticWebsitePreviewNamingStrategy(tokens.map(({ token }) => token).join('-'));
-  }
-
-  /**
-   * Uses the Haikunator package to generate a random name, Heroku-style.
-   *
-   * @see https://www.npmjs.com/package/haikunator
-   */
-  static fromHaikunator(options?: HaikunatorOptions): IStaticWebsitePreviewNamingStrategy {
-    return new StaticWebsitePreviewNamingStrategy(
-      new Haikunator(options).haikunate(),
-    );
   }
 
   /**
