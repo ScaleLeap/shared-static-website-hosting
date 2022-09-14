@@ -210,6 +210,14 @@
         }
       ]
     },
+    "test:integ": {
+      "name": "test:integ",
+      "steps": [
+        {
+          "exec": "npx cdk deploy --require-approval=never --app 'ts-node test/integ.ts'"
+        }
+      ]
+    },
     "test:update": {
       "name": "test:update",
       "description": "Update jest snapshots",

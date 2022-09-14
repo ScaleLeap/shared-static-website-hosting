@@ -14,4 +14,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
 project.addDevDeps('@aws-cdk/integ-tests-alpha');
 
+project.addTask('test:integ', {
+  exec: "npx cdk deploy --require-approval=never --app 'ts-node test/integ.ts'",
+});
+
 project.synth();
