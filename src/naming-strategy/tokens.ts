@@ -1,16 +1,19 @@
 import { Aws } from 'aws-cdk-lib';
-import ci from 'env-ci';
+import ci, { AppveyorEnv } from 'env-ci';
 import Haikunator, { Options as HaikunatorOptions } from 'haikunator';
 
-function fromCI(name: 'branch' | 'commit' | 'build' | 'job' | 'pr' | 'slug'): IStaticWebsitePreviewNamingToken {
-  const c = ci();
+// The env-ci package has some funky type union setup per each CI environment, and we cannot
+// handle every use case, so just generalize this by taking one of the environments that has types
+// for all of the keys that we care about
+type GenericCiEnv = AppveyorEnv
 
-  if (name in c) {
-    const val = c[name];
+function fromCI(name: keyof GenericCiEnv): IStaticWebsitePreviewNamingToken {
 
-    if (val) {
-      return new StaticWebsitePreviewNamingToken(val);
-    }
+  const c = ci() as GenericCiEnv;
+  const val = c[name];
+
+  if (typeof val === 'string' && val) {
+    return new StaticWebsitePreviewNamingToken(val);
   }
 
   throw new Error(`The value for "${name}" is not set.`);
