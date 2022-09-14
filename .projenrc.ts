@@ -12,4 +12,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/moltar/cdk-static-website-preview.git',
 });
 
+project.addDevDeps('@aws-cdk/integ-tests-alpha');
+
 project.synth();
