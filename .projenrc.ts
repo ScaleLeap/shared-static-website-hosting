@@ -17,6 +17,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'aws-cdk',
     '@aws-cdk/integ-tests-alpha',
   ],
+  gitignore: [
+    'cdk.context.json',
+  ],
   integrationTestAutoDiscover: true,
 });
 
