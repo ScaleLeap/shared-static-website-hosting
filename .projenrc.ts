@@ -20,6 +20,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'aws-cdk',
     '@aws-cdk/integ-tests-alpha',
     '@types/env-ci',
+    'esbuild',
   ],
   gitignore: [
     'cdk.context.json',
