@@ -73,6 +73,7 @@
     "constructs": "^10.1.102"
   },
   "dependencies": {
+    "@types/aws-lambda": "^8.10.104",
     "env-ci": "^7.3.0",
     "haikunator": "^2.1.2",
     "param-case": "^3.0.4"

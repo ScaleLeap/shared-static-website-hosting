@@ -14,6 +14,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'param-case',
     'env-ci',
     'haikunator',
+    '@types/aws-lambda',
   ],
   devDeps: [
     'aws-cdk',

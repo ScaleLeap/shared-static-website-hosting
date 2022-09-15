@@ -127,6 +127,10 @@
       "type": "peer"
     },
     {
+      "name": "@types/aws-lambda",
+      "type": "runtime"
+    },
+    {
       "name": "env-ci",
       "type": "runtime"
     },
