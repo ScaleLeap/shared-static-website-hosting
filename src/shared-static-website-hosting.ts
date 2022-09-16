@@ -44,13 +44,13 @@ export class SharedStaticWebsiteHosting extends Construct {
    */
   readonly distribution: IDistribution;
 
-  readonly #hostedZone: IHostedZone;
+  private readonly hostedZone: IHostedZone;
 
   constructor(scope: Construct, id: string, props: SharedStaticWebsiteHostingProps) {
     super(scope, id);
 
-    this.#hostedZone = props.hostedZone;
-    const domainName = [WILDCARD_RECORD_NAME, this.#hostedZone.zoneName].join('.');
+    this.hostedZone = props.hostedZone;
+    const domainName = [WILDCARD_RECORD_NAME, this.hostedZone.zoneName].join('.');
 
     this.bucket = props.bucket ?? new Bucket(this, 'Bucket', {
       removalPolicy: RemovalPolicy.DESTROY,
@@ -71,7 +71,7 @@ export class SharedStaticWebsiteHosting extends Construct {
     this.bucket.grantRead(originAccessIdentity);
 
     const certificate = new DnsValidatedCertificate(this, 'Certificate', {
-      hostedZone: this.#hostedZone,
+      hostedZone: this.hostedZone,
       domainName,
       validation: CertificateValidation.fromDns(),
       cleanupRoute53Records: true,
@@ -101,7 +101,7 @@ export class SharedStaticWebsiteHosting extends Construct {
     });
 
     new ARecord(this, 'AWildcardRecord', {
-      zone: this.#hostedZone,
+      zone: this.hostedZone,
       recordName: WILDCARD_RECORD_NAME,
       target: RecordTarget.fromAlias(new CloudFrontTarget(this.distribution)),
       comment: `A sub-domain for the ${SharedStaticWebsiteHosting.name} construct.`,
