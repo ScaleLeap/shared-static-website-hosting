@@ -14,7 +14,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   license: 'MIT',
   devDeps: [
     '@types/aws-lambda',
-    'aws-cdk',
     '@aws-cdk/integ-tests-alpha',
     '@types/env-ci',
     'esbuild',
