@@ -10,7 +10,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: '@scaleleap/cdk-shared-static-website-hosting',
   packageManager: javascript.NodePackageManager.NPM,
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/ScaleLeap/shared-static-website-hosting.git',
+  repositoryUrl: 'https://github.com/ScaleLeap/shared-static-website-hosting',
   license: 'MIT',
   devDeps: [
     '@types/aws-lambda',

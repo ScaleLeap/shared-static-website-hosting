@@ -2,7 +2,7 @@
   "name": "@scaleleap/cdk-shared-static-website-hosting",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ScaleLeap/shared-static-website-hosting.git"
+    "url": "https://github.com/ScaleLeap/shared-static-website-hosting"
   },
   "scripts": {
     "build": "npx projen build",
