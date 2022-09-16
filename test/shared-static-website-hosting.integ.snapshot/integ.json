@@ -1,0 +1,21 @@
+{
+  "version": "21.0.0",
+  "testCases": {
+    "IT1/DefaultTest": {
+      "stacks": [],
+      "assertionStack": "IT1/DefaultTest/DeployAssert",
+      "assertionStackName": "IT1DefaultTestDeployAssertDB98C1DF"
+    },
+    "ITS/ITSTestCase": {
+      "env": {
+        "account": "708548510583",
+        "region": "us-east-1"
+      },
+      "stacks": [
+        "ITS"
+      ],
+      "assertionStack": "ITS/ITSTestCase/DeployAssert",
+      "assertionStackName": "ITSITSTestCaseDeployAssert4DEA5B6C"
+    }
+  }
+}

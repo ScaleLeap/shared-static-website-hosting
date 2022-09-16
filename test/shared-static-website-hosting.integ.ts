@@ -27,7 +27,7 @@ const swp = new SharedStaticWebsiteHosting(testStack, 'SharedStaticWebsiteHostin
   hostedZone: rootZone,
 });
 
-const testSubDomain = ['test', Date.now()].join('-');
+const testSubDomain = 'test-1663339285522';
 
 new BucketDeployment(testStack, 'BucketDeployment', {
   destinationBucket: swp.bucket,
