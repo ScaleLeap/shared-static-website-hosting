@@ -11,7 +11,7 @@ import { Construct } from 'constructs';
 
 const WILDCARD_RECORD_NAME = '*';
 
-interface SharedStaticWebsiteHostingProps {
+export interface SharedStaticWebsiteHostingProps {
   /**
    * A hosted zone that is open for modification by the construct. This construct will add a wildcard
    * A record that points to the CloudFront distribution.
