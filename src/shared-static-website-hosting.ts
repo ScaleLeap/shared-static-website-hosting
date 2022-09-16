@@ -1,6 +1,6 @@
 import { RemovalPolicy } from 'aws-cdk-lib';
 import { CertificateValidation, DnsValidatedCertificate } from 'aws-cdk-lib/aws-certificatemanager';
-import { Distribution, OriginAccessIdentity, IDistribution, LambdaEdgeEventType, CachePolicy } from 'aws-cdk-lib/aws-cloudfront';
+import { Distribution, OriginAccessIdentity, IDistribution, LambdaEdgeEventType } from 'aws-cdk-lib/aws-cloudfront';
 import { S3Origin } from 'aws-cdk-lib/aws-cloudfront-origins';
 import { Runtime } from 'aws-cdk-lib/aws-lambda';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
