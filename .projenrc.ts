@@ -24,6 +24,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'cdk.context.json',
   ],
   integrationTestAutoDiscover: true,
+
 });
 
 const DOT_ENV_EXAMPLE: Record<string, string> = {
@@ -57,5 +58,20 @@ const cdkConfig = new CdkConfig(project, {
 cdkConfig.json.addDeletionOverride('app');
 cdkConfig.json.addDeletionOverride('context');
 cdkConfig.json.addDeletionOverride('output');
+
+/**
+ * A hack to remove the integratio test from the overall test process.
+ *
+ * These tests are executed in CI, and require acccess to AWS.
+ *
+ * > Need to perform AWS calls for account 000000000, but no credentials have been configured
+ *
+ * Can't figure out another way to disable the integ tests from being injected into the test task.
+ */
+project.testTask.steps.forEach((step) => {
+  if (step.spawn?.startsWith('integ:')) {
+    Object.assign(step, { spawn: 'true' });
+  }
+});
 
 project.synth();

@@ -281,7 +281,7 @@
           "spawn": "eslint"
         },
         {
-          "spawn": "integ:shared-static-website-hosting:assert"
+          "spawn": "true"
         }
       ]
     },
