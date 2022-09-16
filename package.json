@@ -14,12 +14,12 @@
     "docgen": "npx projen docgen",
     "eject": "npx projen eject",
     "eslint": "npx projen eslint",
+    "integ:shared-static-website-hosting:assert": "npx projen integ:shared-static-website-hosting:assert",
+    "integ:shared-static-website-hosting:deploy": "npx projen integ:shared-static-website-hosting:deploy",
+    "integ:shared-static-website-hosting:destroy": "npx projen integ:shared-static-website-hosting:destroy",
+    "integ:shared-static-website-hosting:snapshot": "npx projen integ:shared-static-website-hosting:snapshot",
+    "integ:shared-static-website-hosting:watch": "npx projen integ:shared-static-website-hosting:watch",
     "integ:snapshot-all": "npx projen integ:snapshot-all",
-    "integ:static-website-preview:assert": "npx projen integ:static-website-preview:assert",
-    "integ:static-website-preview:deploy": "npx projen integ:static-website-preview:deploy",
-    "integ:static-website-preview:destroy": "npx projen integ:static-website-preview:destroy",
-    "integ:static-website-preview:snapshot": "npx projen integ:static-website-preview:snapshot",
-    "integ:static-website-preview:watch": "npx projen integ:static-website-preview:watch",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "package:js": "npx projen package:js",
@@ -75,10 +75,7 @@
     "constructs": "^10.1.102"
   },
   "dependencies": {
-    "@types/aws-lambda": "^8.10.104",
-    "env-ci": "^7.3.0",
-    "haikunator": "^2.1.2",
-    "param-case": "^3.0.4"
+    "@types/aws-lambda": "^8.10.104"
   },
   "keywords": [
     "cdk"

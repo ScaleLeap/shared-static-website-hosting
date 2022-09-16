@@ -12,9 +12,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   projenrcTs: true,
   repositoryUrl: 'https://github.com/moltar/cdk-static-website-preview.git',
   deps: [
-    'param-case',
-    'env-ci',
-    'haikunator',
     '@types/aws-lambda',
   ],
   devDeps: [
