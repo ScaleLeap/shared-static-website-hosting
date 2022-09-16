@@ -15,7 +15,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   devDeps: [
     '@types/aws-lambda',
     '@aws-cdk/integ-tests-alpha',
-    '@types/env-ci',
     'esbuild',
     'dotenv',
   ],
