@@ -7,10 +7,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   cdkVersion: '2.41.0',
   constructsVersion: '10.1.102',
   defaultReleaseBranch: 'main',
-  name: 'cdk-static-website-preview',
+  name: '@scaleleap/cdk-shared-static-website-hosting',
   packageManager: javascript.NodePackageManager.NPM,
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/moltar/cdk-static-website-preview.git',
+  repositoryUrl: 'https://github.com/ScaleLeap/shared-static-website-hosting.git',
   deps: [
     '@types/aws-lambda',
   ],

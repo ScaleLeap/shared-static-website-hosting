@@ -1,8 +1,8 @@
 {
-  "name": "cdk-static-website-preview",
+  "name": "@scaleleap/cdk-shared-static-website-hosting",
   "repository": {
     "type": "git",
-    "url": "https://github.com/moltar/cdk-static-website-preview.git"
+    "url": "https://github.com/ScaleLeap/shared-static-website-hosting.git"
   },
   "scripts": {
     "build": "npx projen build",
