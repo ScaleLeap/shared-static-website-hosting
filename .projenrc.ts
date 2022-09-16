@@ -68,7 +68,9 @@ cdkConfig.json.addDeletionOverride('output');
  */
 project.testTask.steps.forEach((step) => {
   if (step.spawn?.startsWith('integ:')) {
-    Object.assign(step, { spawn: 'true' });
+    Object.assign(step, {
+      spawn: undefined,
+    });
   }
 });
 
