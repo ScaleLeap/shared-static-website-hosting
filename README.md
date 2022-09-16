@@ -1,6 +1,12 @@
-# `@scaleleap/cdk-shared-static-website-hosting`
+# Shared Static Website Hosting via AWS CDK
 
 > Creates a shared static website hosting on CloudFront.
+
+## Install
+
+```sh
+npm i @scaleleap/cdk-shared-static-website-hosting
+```
 
 ## Usage
 
