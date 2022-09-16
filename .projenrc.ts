@@ -23,7 +23,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'cdk.context.json',
   ],
   integrationTestAutoDiscover: true,
-
 });
 
 const DOT_ENV_EXAMPLE: Record<string, string> = {
