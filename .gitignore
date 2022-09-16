@@ -30,6 +30,7 @@ jspm_packages/
 *.tgz
 .yarn-integrity
 .cache
+.env
 cdk.context.json
 !/.projenrc.js
 /test-reports/
@@ -60,6 +61,8 @@ test/static-website-preview.integ.snapshot/manifest.json
 test/static-website-preview.integ.snapshot/**/manifest.json
 test/static-website-preview.integ.snapshot/tree.json
 test/static-website-preview.integ.snapshot/**/tree.json
+!/.env.example
+!/test/env.ts
 !/cdk.json
 /cdk.out/
 .cdk.staging/

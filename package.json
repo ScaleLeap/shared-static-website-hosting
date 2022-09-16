@@ -50,6 +50,7 @@
     "aws-cdk": "^2.41.0",
     "aws-cdk-lib": "2.41.0",
     "constructs": "10.1.102",
+    "dotenv": "^16.0.2",
     "esbuild": "^0.15.7",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",

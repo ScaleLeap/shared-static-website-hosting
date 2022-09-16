@@ -1,3 +1,4 @@
+import { awscdk, javascript, SampleFile, TextFile } from 'projen';
 import { CdkConfig } from 'projen/lib/awscdk';
 
 const project = new awscdk.AwsCdkConstructLibrary({
@@ -21,11 +22,33 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '@aws-cdk/integ-tests-alpha',
     '@types/env-ci',
     'esbuild',
+    'dotenv',
   ],
   gitignore: [
+    '.env',
     'cdk.context.json',
   ],
   integrationTestAutoDiscover: true,
+});
+
+const DOT_ENV_EXAMPLE: Record<string, string> = {
+  AWS_ACCOUNT_ID: '000000000',
+  ROOT_ZONE_NAME: 'foo.example.com',
+};
+
+const dotEnvExample = new TextFile(project, '.env.example', {
+  lines: Object.entries(DOT_ENV_EXAMPLE).map((kv) => kv.join('=')),
+});
+
+new TextFile(project, `${project.testdir}/env.ts`, {
+  lines: [
+    "import 'dotenv/config';",
+    ...Object.keys(DOT_ENV_EXAMPLE).map((key) => `export const ${key} = String(process.env.${key});`),
+  ],
+});
+
+new SampleFile(project, '.env', {
+  sourcePath: dotEnvExample.path,
 });
 
 // Fixes: https://github.com/projen/projen/issues/1347
