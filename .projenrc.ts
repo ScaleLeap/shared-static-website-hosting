@@ -1,5 +1,6 @@
 import { awscdk, javascript, SampleFile, TextFile } from 'projen';
 import { CdkConfig } from 'projen/lib/awscdk';
+import { NpmAccess } from 'projen/lib/javascript';
 
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Roman Filippov',
@@ -9,6 +10,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   defaultReleaseBranch: 'main',
   name: '@scaleleap/cdk-shared-static-website-hosting',
   packageManager: javascript.NodePackageManager.NPM,
+  npmAccess: NpmAccess.PUBLIC,
   projenrcTs: true,
   repositoryUrl: 'https://github.com/ScaleLeap/shared-static-website-hosting',
   license: 'MIT',
