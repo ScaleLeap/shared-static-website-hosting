@@ -3,7 +3,7 @@ import { CdkConfig } from 'projen/lib/awscdk';
 
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Roman Filippov',
-  authorAddress: 'rf@romanfilippov.com',
+  authorAddress: 'roman@scaleleap.com',
   cdkVersion: '2.41.0',
   constructsVersion: '10.1.102',
   defaultReleaseBranch: 'main',
