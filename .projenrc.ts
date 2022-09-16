@@ -12,10 +12,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   projenrcTs: true,
   repositoryUrl: 'https://github.com/ScaleLeap/shared-static-website-hosting.git',
   license: 'MIT',
-  deps: [
-    '@types/aws-lambda',
-  ],
   devDeps: [
+    '@types/aws-lambda',
     'aws-cdk',
     '@aws-cdk/integ-tests-alpha',
     '@types/env-ci',
