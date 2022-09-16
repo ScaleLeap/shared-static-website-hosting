@@ -16,7 +16,7 @@ export interface SharedStaticWebsiteHostingProps {
    * A hosted zone that is open for modification by the construct. This construct will add a wildcard
    * A record that points to the CloudFront distribution.
    */
-  hostedZone: IHostedZone;
+  readonly hostedZone: IHostedZone;
 
   /**
    * An S3 bucket where the static files will be stored.
@@ -27,7 +27,7 @@ export interface SharedStaticWebsiteHostingProps {
    *
    * A new bucket will be created, if not provided.
    */
-  bucket?: IBucket;
+  readonly bucket?: IBucket;
 }
 
 /**
