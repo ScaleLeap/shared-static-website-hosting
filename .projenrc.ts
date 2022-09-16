@@ -1,4 +1,4 @@
-import { awscdk, javascript } from 'projen';
+import { CdkConfig } from 'projen/lib/awscdk';
 
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Roman Filippov',
@@ -27,5 +27,17 @@ const project = new awscdk.AwsCdkConstructLibrary({
   ],
   integrationTestAutoDiscover: true,
 });
+
+// Fixes: https://github.com/projen/projen/issues/1347
+const cdkConfig = new CdkConfig(project, {
+  app: '', // Required for types.
+  watchIncludes: [
+    `${project.srcdir}/**/*.ts`,
+    `${project.testdir}/**/*.integ.ts`,
+  ],
+});
+cdkConfig.json.addDeletionOverride('app');
+cdkConfig.json.addDeletionOverride('context');
+cdkConfig.json.addDeletionOverride('output');
 
 project.synth();

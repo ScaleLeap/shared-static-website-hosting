@@ -60,3 +60,6 @@ test/static-website-preview.integ.snapshot/manifest.json
 test/static-website-preview.integ.snapshot/**/manifest.json
 test/static-website-preview.integ.snapshot/tree.json
 test/static-website-preview.integ.snapshot/**/tree.json
+!/cdk.json
+/cdk.out/
+.cdk.staging/
